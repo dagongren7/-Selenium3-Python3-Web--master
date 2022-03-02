@@ -1,12 +1,14 @@
 #coding=utf-8
 import configparser
+import os
+
 """
 该部分代码用于读取ini的配置文件信息
 """
 class ReadIni(object):
     def __init__(self,file_name=None,node=None):
         if file_name == None:
-            file_name = "F:\dailyCode\pythonCode\Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\config\LocalElement.ini"
+            file_name = "..\config\LocalElement.ini"
         if node == None:
             self.node = "RegisterElement"
         else:
@@ -26,5 +28,6 @@ class ReadIni(object):
         return data
     
 if __name__ == '__main__':
+    print(os.getcwd())
     read_init = ReadIni()
     print(read_init.get_value('user_name'))

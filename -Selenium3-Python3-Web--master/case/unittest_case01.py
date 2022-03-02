@@ -28,6 +28,13 @@ class FirstCase01(unittest.TestCase):
     def test_02(self):
         print("这是第02个case")
     
+    def testTrue(self):
+        b = None
+        a = b
+        if a == None:
+            print(1)
+        else:
+            print(2)
 
 if __name__ == '__main__':
     # unittest.main()

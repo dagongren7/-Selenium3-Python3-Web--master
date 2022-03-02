@@ -53,25 +53,23 @@ class FirstCase(unittest.TestCase):
         #     print("注册成功了，此条case执行失败")
 
     def test_login_password_error(self):
-        password_error = self.login.login_password_error('12345@126.com','user111','11',self.file_name)
+        password_error = self.login.login_password_error('12345@126.com','11','11',self.file_name)
         self.assertIs(password_error,True)
-        # if password_error == True:
+        # if password_error == False:
         #     print("注册成功了，此条case执行失败")
 
     def test_login_code_error(self):
-        code_error = self.login.login_code_error('34','user111','111111',self.file_name)
-        self.assertIs(code_error,True)
-        # if code_error == True:
-        #     print("注册成功了，此条case执行失败")
+        code_error = self.login.login_code_error('34dsdf@qq.com','user111','111111',self.file_name)
+        # self.assertIs(code_error,True)
+        if code_error == True:
+            print("验证码执行失败")
+            return self.test_login_code_error()
 
     def test_login_success(self):
         success = self.login.register_succes("222@qq.com","ss222","111111",self.file_name)
         self.assertIs(success,True)
         # if self.login.register_succes("222@qq.com","ss222","111111",self.file_name) == True:
         #     print('注册成功')
-
-        
-
 
 if __name__ == '__main__':
     # unittest.main()   

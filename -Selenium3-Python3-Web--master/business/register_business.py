@@ -52,8 +52,10 @@ class RegisterBusiness(object):
     def login_code_error(self,email,name,password,file_name):
         self.user_base(email,name,password,file_name)
         if self.register_h.get_user_text("code_text_error","验证码错误") == None:
+            print('-----验证码正确-------')
             return True
         else:
+            print('=====验证码错误========')
             return False
 
     #注册功能整合，是对上面几个方法的封装，以后只需要调用这一个方法即可
