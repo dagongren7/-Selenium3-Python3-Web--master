@@ -39,15 +39,15 @@ class FirstCase(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.log.close_handle()
-        cls.driver.close()
+        # cls.driver.close()
 
 
     def test_login_email_error(self):
-        email_error = self.login.login_email_error('272@126.com','user221','111111',self.file_name)
+        email_error = self.login.login_email_error('27','user221','111111',self.file_name)
         self.assertIs(email_error,True)
     
     def test_login_username_error(self):
-        username_error = self.login.login_name_error('1234@126.com','1112122222222224444','111111',self.file_name)
+        username_error = self.login.login_name_error('1234@126.com','1','111111',self.file_name)
         self.assertIs(username_error,True)
         # if username_error == True:
         #     print("注册成功了，此条case执行失败")
@@ -60,10 +60,11 @@ class FirstCase(unittest.TestCase):
 
     def test_login_code_error(self):
         code_error = self.login.login_code_error('34dsdf@qq.com','user111','111111',self.file_name)
+        print('code_error----------------',code_error)
         # self.assertIs(code_error,True)
-        if code_error == True:
+        if code_error == False:
             print("验证码执行失败")
-            return self.test_login_code_error()
+            # return self.test_login_code_error()
 
     def test_login_success(self):
         success = self.login.register_succes("222@qq.com","ss222","111111",self.file_name)

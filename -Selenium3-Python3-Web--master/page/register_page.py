@@ -30,7 +30,7 @@ class RegisterPage(object):
     
     #获取用户名错误元素
     def get_name_error_element(self):
-        return self.fd.get_element("user_name_error")
+        return self.fd.get_element("register_nickname-error")
     
     #获取密码错误元素
     def get_password_error_element(self):
@@ -38,4 +38,4 @@ class RegisterPage(object):
     
     #获取验证码错误元素
     def get_code_error_element(self):
-        return self.fd.get_element("code_text_errorr")
+        return self.fd.get_element("captcha_code-error")

@@ -1,6 +1,5 @@
 {
   "assertTrueOrFalse.py::BlogHome::test_01": true,
   "first_case.py::FirstCase::test_login_password_error": true,
-  "first_case.py::FirstCase::test_login_success": true,
-  "first_case.py::FirstCase::test_login_username_error": true
+  "first_case.py::FirstCase::test_login_success": true
 }

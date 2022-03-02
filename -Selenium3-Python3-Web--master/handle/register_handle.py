@@ -31,13 +31,13 @@ class RegisterHandle(object):
     # 获取文字信息
     def get_user_text(self, info, user_info):
         try:
-            if info == 'user_email_error':
+            if info == 'register_email-error':
                 text = self.register_p.get_email_error_element().text
-            elif info == 'user_name_error':
+            elif info == 'register_nickname-error':
                 text = self.register_p.get_name_error_element().text
-            elif info == 'password_error':
+            elif info == 'register_password-error':
                 text = self.register_p.get_password_error_element().text
-            elif info == 'code_text_errorr':
+            elif info == 'captcha_code-error':
                 text = self.register_p.get_code_error_element().text
             else:
                 text = None
