@@ -43,21 +43,35 @@ class GetCode(object):
         self.driver = driver
 
     # 获取验证码图片
-    def get_code_image(self, file_name):
-        '''
-            思想：先保存整个网页，然后从中裁剪出验证码图片
-            '''
-        self.driver.save_screenshot(file_name)  # 保存整个页面为图片格式
-        code_element = self.driver.find_element_by_id("getcode_num")  # 定位到验证码图片
-        left = code_element.location['x'] + 170
-        top = code_element.location['y'] + 110
-        right = code_element.size['width'] + left + 55
-        height = code_element.size['height'] + top + 70
+    def get_code_image(self, file_name,code):
+        # code = 1, 华为云验证码定位
+        if code == '1':
+            driver.save_screenshot(file_name)  # 保存整个页面为图片格式
+            code_element = driver.find_element_by_id("s-canvas")  # 定位到验证码图片
+            left = code_element.location['x'] + 5
+            top = code_element.location['y'] - 3
+            right = code_element.size['width'] + left + 5
+            height = code_element.size['height'] + top + 5
 
-        im = Image.open(file_name)  # 使用pillow中的Image方法打开之前保存的图片
-        img = im.crop((left, top, right, height))  # 使用crop方法进行裁剪，取出图片中的验证码图片
-        img.save(file_name)  # 保存裁剪出的验证码图片
-        time.sleep(1)  # 加上时间延迟，使得在解析之前能够有足够的时间保存图片
+            im = Image.open(file_name)  # 使用pillow中的Image方法打开之前保存的图片
+            img = im.crop((left, top, right, height))  # 使用crop方法进行裁剪，取出图片中的验证码图片
+            img.save(file_name)  # 保存裁剪出的验证码图片
+
+            '''
+            code == 0,测试网址定位
+            '''
+        if code == '0':
+            self.driver.save_screenshot(file_name)  # 保存整个页面为图片格式
+            code_element = self.driver.find_element_by_id("getcode_num")  # 定位到验证码图片
+            left = code_element.location['x'] + 170
+            top = code_element.location['y'] + 110
+            right = code_element.size['width'] + left + 55
+            height = code_element.size['height'] + top + 70
+
+            im = Image.open(file_name)  # 使用pillow中的Image方法打开之前保存的图片
+            img = im.crop((left, top, right, height))  # 使用crop方法进行裁剪，取出图片中的验证码图片
+            img.save(file_name)  # 保存裁剪出的验证码图片
+            time.sleep(1)  # 加上时间延迟，使得在解析之前能够有足够的时间保存图片
 
     def base64_api(self,uname, pwd, img, typeid):
         with open(img, 'rb') as f:
@@ -73,6 +87,6 @@ class GetCode(object):
 
     # 解析图片获取验证码
     def code_online(self, file_name):
-        self.get_code_image(file_name)
+        self.get_code_image(file_name,'0')
         result = self.base64_api(uname='dagongren', pwd='chen184550', img=file_name, typeid=3)
         return result

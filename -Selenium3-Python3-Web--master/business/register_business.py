@@ -7,6 +7,7 @@ class RegisterBusiness(object):
         self.register_h = RegisterHandle(self.driver)
     
     def user_base(self,email,name,password,file_name):
+        #todo 做了一个动作，之前有输入清空，输错了可以重新调用
         self.register_h.send_user_email(email)
         self.register_h.send_user_name(name)
         self.register_h.send_user_password(password)
@@ -17,10 +18,10 @@ class RegisterBusiness(object):
     def register_succes(self,email,name,password,file_name):
         self.user_base(email,name,password,file_name)
         if self.register_h.get_register_text() == None:
-            print('注册成功')
+            # print('注册成功')
             return True
         else:
-            print('注册失败')
+            # print('注册失败')
             return False
     
     #邮箱错误
@@ -51,11 +52,11 @@ class RegisterBusiness(object):
     #验证码错误
     def login_code_error(self,email,name,password,file_name):
         self.user_base(email,name,password,file_name)
-        if self.register_h.get_user_text("code_text_error","验证码错误") == None:
+        if self.register_h.get_user_text("captcha_code-error","验证码错误") == None:
             print('-----验证码正确-------')
             return True
         else:
-            print('=====验证码错误========')
+            print('=====验证码错误，重新输入========')
             return False
 
     #注册功能整合，是对上面几个方法的封装，以后只需要调用这一个方法即可

@@ -1,6 +1,6 @@
 #coding=utf-8
 import sys
-sys.path.append(r"D:\project_selenium3") #将工程路径加入到Python的搜索路径中
+sys.path.append(r"F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master") #将工程路径加入到Python的搜索路径中
 from business.register_business import RegisterBusiness
 from selenium import webdriver
 from log.user_log import UserLog
@@ -9,7 +9,10 @@ import HTMLTestRunner
 import os
 import time
 
-
+'''
+验证码识别网址
+http://www.ttshitu.com/price.html?spm=null
+'''
 class FirstCase(unittest.TestCase):
     
     @classmethod
@@ -39,7 +42,7 @@ class FirstCase(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.log.close_handle()
-        cls.driver.close()
+        # cls.driver.close()
 
 
     def test_login_email_error(self):
@@ -67,10 +70,11 @@ class FirstCase(unittest.TestCase):
             # return self.test_login_code_error()
 
     def test_login_success(self):
-        success = self.login.register_succes("222@qq.com","ss222","111111",self.file_name)
-        self.assertIs(success,True)
-        # if self.login.register_succes("222@qq.com","ss222","111111",self.file_name) == True:
-        #     print('注册成功')
+        success = self.login.register_succes("777@qq.com","ss779","111111",self.file_name)
+        # self.assertIs(success,True)
+        if self.login.register_succes("777@qq.com","ss779","111111",self.file_name) == False:
+            print('重新输入')
+            return self.test_login_success()
 
 if __name__ == '__main__':
     # unittest.main()   

@@ -1,4 +1,5 @@
 {
   "assertTrueOrFalse.py::BlogHome::test_01": true,
-  "first_case.py::FirstCase::test_login_success": true
+  "first_case.py::FirstCase::test_login_code_error": true,
+  "first_case.py::FirstCase::test_login_email_error": true
 }
