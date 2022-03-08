@@ -47,11 +47,11 @@ class FirstDataCase(unittest.TestCase):
     '''
 
     @ddt.data(*data)
-    def test_register_case(self,data):
-        email,username,password,file_name,assertCode,assertText = data        
-        email_error = self.login.register_function(email,username,password,file_name,assertCode,assertText)
-        self.assertFalse(email_error,'测试失败')
-
+    def test_register_case(self, data):
+        email, username, password, file_name, assertCode, assertText = data
+        email_error = self.login.register_function(email, username, password, file_name, assertCode, assertText)
+        print('email_error代码：',email_error)
+        self.assertIs(email_error, True)
 
 
 if __name__ == '__main__':

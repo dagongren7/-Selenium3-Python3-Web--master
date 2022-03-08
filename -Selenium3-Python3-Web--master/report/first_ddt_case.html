@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>this is second report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2022-03-08 21:31:06</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:38.505102</p>
-<p class='attribute'><strong>Status:</strong> Failure 3</p>
+<p class='attribute'><strong>Start Time:</strong> 2022-03-08 22:36:02</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:25.403210</p>
+<p class='attribute'><strong>Status:</strong> Pass 1 Failure 1</p>
 
 <p class='description'>这是第二个报告</p>
 </div>
@@ -223,15 +223,15 @@ function showOutput(id, name) {
 
 <tr class='failClass'>
     <td>FirstDataCase</td>
-    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
     <td>0</td>
-    <td>3</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',3)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
 <tr id='ft1.1' class='none'>
-    <td class='failCase'><div class='testcase'>test_register_case_1___122____Mushishi11____111111____C___Users__ASUS__Pictures__test02_png____user_email_error____请输入有效的电子邮件地址__</div></td>
+    <td class='failCase'><div class='testcase'>test_register_case_1___125_qq_com____3____1ewe323322332____C___Users__ASUS__Pictures__test02_png____register_nickname_error____请输入有效账号__</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -248,15 +248,15 @@ function showOutput(id, name) {
 ft1.1: Traceback (most recent call last):
   File "F:\python3.9\lib\site-packages\ddt.py", line 191, in wrapper
     return func(self, *args, **kwargs)
-  File "F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\case\first_ddt_case.py", line 53, in test_register_case
-    self.assertFalse(email_error,'测试失败')
-AssertionError: True is not false : 测试失败
+  File "F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\case\first_ddt_case.py", line 54, in test_register_case
+    self.assertIs(email_error, True)
+AssertionError: False is not True
 Traceback (most recent call last):
   File "F:\python3.9\lib\site-packages\ddt.py", line 191, in wrapper
     return func(self, *args, **kwargs)
-  File "F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\case\first_ddt_case.py", line 53, in test_register_case
-    self.assertFalse(email_error,'测试失败')
-AssertionError: True is not false : 测试失败
+  File "F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\case\first_ddt_case.py", line 54, in test_register_case
+    self.assertIs(email_error, True)
+AssertionError: False is not True
 
 
         </pre>
@@ -266,70 +266,22 @@ AssertionError: True is not false : 测试失败
     </td>
 </tr>
 
-<tr id='ft1.2' class='none'>
-    <td class='failCase'><div class='testcase'>test_register_case_2____qq_com____Mushishi12____111112____C___Users__ASUS__Pictures__test02_png____user_email_error____请输入有效的电子邮件地址__</div></td>
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_register_case_2___124_qq_com____Mushishi13____1____C___Users__ASUS__Pictures__test02_png____register_password_error____请输入有效的密码__</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
 
-    <div id='div_ft1.2' class="popup_window">
+    <div id='div_pt1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.2: Traceback (most recent call last):
-  File "F:\python3.9\lib\site-packages\ddt.py", line 191, in wrapper
-    return func(self, *args, **kwargs)
-  File "F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\case\first_ddt_case.py", line 53, in test_register_case
-    self.assertFalse(email_error,'测试失败')
-AssertionError: True is not false : 测试失败
-Traceback (most recent call last):
-  File "F:\python3.9\lib\site-packages\ddt.py", line 191, in wrapper
-    return func(self, *args, **kwargs)
-  File "F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\case\first_ddt_case.py", line 53, in test_register_case
-    self.assertFalse(email_error,'测试失败')
-AssertionError: True is not false : 测试失败
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.3' class='none'>
-    <td class='failCase'><div class='testcase'>test_register_case_3___124_qq_com____Mushishi13____111113____C___Users__ASUS__Pictures__test02_png____user_email_error____请输入有效的电子邮件地址__</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
-        fail</a>
-
-    <div id='div_ft1.3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.3: Traceback (most recent call last):
-  File "F:\python3.9\lib\site-packages\ddt.py", line 191, in wrapper
-    return func(self, *args, **kwargs)
-  File "F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\case\first_ddt_case.py", line 53, in test_register_case
-    self.assertFalse(email_error,'测试失败')
-AssertionError: True is not false : 测试失败
-Traceback (most recent call last):
-  File "F:\python3.9\lib\site-packages\ddt.py", line 191, in wrapper
-    return func(self, *args, **kwargs)
-  File "F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\case\first_ddt_case.py", line 53, in test_register_case
-    self.assertFalse(email_error,'测试失败')
-AssertionError: True is not false : 测试失败
-
+pt1.2: 
 
         </pre>
     </div>
@@ -340,9 +292,9 @@ AssertionError: True is not false : 测试失败
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>3</td>
-    <td>0</td>
-    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>
