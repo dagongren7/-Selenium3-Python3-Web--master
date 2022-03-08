@@ -3,11 +3,23 @@ import xlrd
 from xlutils.copy import copy
 import time
 
+'''
+Python读取xls文件报错：raise XLRDError(FILE_FORMAT_DESCRIPTIONS[file_format]+‘； not supported‘)
+ 找到两种方法
+方法一： pip install pyexcel_xls
+测试没成功，还是报错。
+
+方法二：
+先删除已安装的xlrd
+pip uninstall xlrd
+再安装低版本xlrd搞定
+pip install xlrd==1.2.0
+'''
 class ExcelUtil(object):
 
     def __init__(self,excel_path=None,index=None):   #index值excel文件中的sheet
         if excel_path == None:
-            self.excel_path = "D:\project_selenium3\config\casedata.xls"
+            self.excel_path = "F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\config\casedata.xls"
         else:
             self.excel_path = excel_path
         
@@ -54,7 +66,7 @@ class ExcelUtil(object):
 
 
 if __name__ == '__main__':
-    ex = ExcelUtil("D:\project_selenium3\config\keyword.xls")
+    ex = ExcelUtil("F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\config\keyword.xls")
     print(ex.write_value(2,7,'haha'))
 
 

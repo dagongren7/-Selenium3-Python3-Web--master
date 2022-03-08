@@ -1,5 +1,8 @@
 {
   "assertTrueOrFalse.py::BlogHome::test_01": true,
   "first_case.py::FirstCase::test_login_code_error": true,
-  "first_case.py::FirstCase::test_login_email_error": true
+  "first_case.py::FirstCase::test_login_email_error": true,
+  "first_ddt_case.py::FirstDataCase::test_register_case_1___122____Mushishi11____111111____C___Users__ASUS__Pictures__test02_png____user_email_error____\u8bf7\u8f93\u5165\u6709\u6548\u7684\u7535\u5b50\u90ae\u4ef6\u5730\u5740__": true,
+  "first_ddt_case.py::FirstDataCase::test_register_case_2____qq_com____Mushishi12____111112____C___Users__ASUS__Pictures__test02_png____user_email_error____\u8bf7\u8f93\u5165\u6709\u6548\u7684\u7535\u5b50\u90ae\u4ef6\u5730\u5740__": true,
+  "first_ddt_case.py::FirstDataCase::test_register_case_3___124_qq_com____Mushishi13____111113____C___Users__ASUS__Pictures__test02_png____user_email_error____\u8bf7\u8f93\u5165\u6709\u6548\u7684\u7535\u5b50\u90ae\u4ef6\u5730\u5740__": true
 }

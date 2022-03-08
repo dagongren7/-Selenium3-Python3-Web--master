@@ -1,9 +1,10 @@
 #coding=utf-8
 import ddt
 import sys
-sys.path.append(r"D:\project_selenium3") #将工程路径加入到Python的搜索路径中
+sys.path.append(r"F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master")
 from business.register_business import RegisterBusiness
 from selenium import webdriver
+from log.user_log import UserLog
 import unittest
 import HTMLTestRunner
 import os
@@ -54,8 +55,10 @@ class FirstDataCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    dir_path = os.path.dirname(os.getcwd()) #获取上一级目录，即工程目录  
+    dir_path = os.path.dirname(os.getcwd()) #工程目录
+    print('工程目录-------', dir_path)
     file_path = os.path.join(dir_path,'report','first_ddt_case.html') #获取report文件夹下first_case.html目录路径
+    print('文件目录',file_path)
     f = open(file_path,'wb')
     suite = unittest.TestLoader().loadTestsFromTestCase(FirstDataCase)
     runner = HTMLTestRunner.HTMLTestRunner(stream=f,title="this is second report",description="这是第二个报告",verbosity=2)
