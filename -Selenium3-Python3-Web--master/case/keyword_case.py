@@ -1,17 +1,17 @@
 #coding=utf-8
 import sys
-sys.path.append(r"D:\project_selenium3") #将工程路径加入到Python的搜索路径中
+sys.path.append(r"F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master") #将工程路径加入到Python的搜索路径中
 from util.excel_util import ExcelUtil
 from keywordselenium.actionMethod import ActionMethod
 
 class KewordCase(object):
     def run_main(self):
         self.action_method = ActionMethod() 
-        handle_excel = ExcelUtil("D:\project_selenium3\config\keyword.xls")
+        handle_excel = ExcelUtil("F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master\config\keyword.xls")
         case_lines = handle_excel.get_lines() #获取case表格中的行数
         if case_lines:
             for i in range(1,case_lines): #跳过case表格中的第一行内容
-                is_run = handle_excel.get_col_value(i,3) #获取是否执行列的值
+                is_run = handle_excel.get_col_value(i,3) #获取是否执行
                 if is_run == 'yes':   #根据执行列是否为yes，如果是yes，则执行相应的case
                     except_result_method = handle_excel.get_col_value(i,7) #预期结果方法值
                     except_result = handle_excel.get_col_value(i,8) #预期结果

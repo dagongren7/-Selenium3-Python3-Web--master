@@ -1,6 +1,6 @@
 #coding=utf-8
 import sys
-sys.path.append(r"D:\project_selenium3") #将工程路径加入到Python的搜索路径中
+sys.path.append(r"F:\dailyCode\pythonCode\-Selenium3-Python3-Web--master\-Selenium3-Python3-Web--master") #将工程路径加入到Python的搜索路径中
 from selenium import webdriver
 from base.find_element import FindElement
 import time
