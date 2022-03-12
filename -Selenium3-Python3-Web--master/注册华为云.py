@@ -36,9 +36,9 @@ def get_code_image(file_name):
     '''
     driver.save_screenshot(file_name) #保存整个页面为图片格式
     code_element = driver.find_element_by_id("s-canvas") #定位到验证码图片
-    left = code_element.location['x'] + 5
-    top = code_element.location['y'] - 3
-    right = code_element.size['width']+left + 5
+    left = code_element.location['x'] + 280
+    top = code_element.location['y'] + 95
+    right = code_element.size['width']+left + 18
     height = code_element.size['height']+top + 5
 
     im = Image.open(file_name) #使用pillow中的Image方法打开之前保存的图片
@@ -67,21 +67,21 @@ def base64_api(uname, pwd, img, typeid):
 def run_main():
     # user_name_info = get_range_user()
     # user_email = user_name_info + '@126.com'
-    file_name = r"C:\Users\admin\Pictures\test01.png"
+    file_name = r"C:\Users\ASUS\Pictures\test01.png"
     driver_init()
     driver.find_element_by_name("userName").send_keys('ckladmin')
-    get_element("password").send_keys('123456')
+    get_element("password").send_keys('Sg@686')
     get_code_image(file_name)
     text = code_online(file_name)
     driver.find_element_by_name("vailDateCode").send_keys(text)
     driver.find_element_by_class_name("login_button").click()
-    text = driver.find_element_by_class_name('error').text
-    print('验证码错误',text)
-    if len(text) == 0:
-        print('重试')
-    else:
-        time.sleep(5)
-        ActionChains(driver).send_keys(Keys.ENTER).perform()
+    print(driver.page_source)
+    if  r'验证码输入错误' in driver.page_source:
+        return run_main()
+    time.sleep(3)
+    driver.switch_to.alert.accept()
+    # ActionChains(driver).send_keys(Keys.ENTER).perform()
+
     # driver.close() #关闭driver，一定要有，否则电脑速度会越来越慢
 
 run_main()
