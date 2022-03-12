@@ -16,7 +16,7 @@ driver = webdriver.Chrome()
 def driver_init():
     driver.get("http://sgs.pocyun.com:48003/#/") #打开页面
     driver.maximize_window() #窗口最大化
-    driver.refresh()
+    # driver.refresh()
     time.sleep(5)
 
 #获取element信息
@@ -75,7 +75,7 @@ def run_main():
     text = code_online(file_name)
     driver.find_element_by_name("vailDateCode").send_keys(text)
     driver.find_element_by_class_name("login_button").click()
-    print(driver.page_source)
+    # print(driver.page_source)
     if  r'验证码输入错误' in driver.page_source:
         return run_main()
     time.sleep(3)
