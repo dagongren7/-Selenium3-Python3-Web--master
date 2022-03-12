@@ -26,7 +26,7 @@ class RegisterPage(object):
 
     #获取邮箱错误元素
     def get_email_error_element(self):
-        return self.fd.get_element("user_email_error")
+        return self.fd.get_element("register_email-error")
     
     #获取用户名错误元素
     def get_name_error_element(self):

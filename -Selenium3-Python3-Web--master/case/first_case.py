@@ -8,7 +8,15 @@ import unittest
 import HTMLTestRunner
 import os
 import time
+import logging
+import logging.config
+from os import path
 
+base_dir = path.dirname(path.abspath(__file__))
+log_file_path = '../config/log.conf'
+print('log_file_path=',log_file_path)
+logging.config.fileConfig(log_file_path)
+logger=logging.getLogger()
 '''
 验证码识别网址
 http://www.ttshitu.com/price.html?spm=null
@@ -17,8 +25,8 @@ class FirstCase(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
-        cls.log = UserLog()
-        cls.logger = cls.log.get_log()
+        # cls.log = UserLog()
+        # cls.logger = cls.log.get_log()
         cls.file_name = r"C:\Users\ASUS\Pictures\test02.png"
         cls.driver = webdriver.Chrome()
         cls.driver.get("http://www.5itest.cn/register")
@@ -26,7 +34,7 @@ class FirstCase(unittest.TestCase):
 
     def setUp(self):
         self.driver.refresh()
-        self.logger.info("this is Chrome")
+        # self.logger.info("this is Chrome")
         self.login = RegisterBusiness(self.driver)
 
     def tearDown(self):
@@ -41,12 +49,12 @@ class FirstCase(unittest.TestCase):
     
     @classmethod
     def tearDownClass(cls):
-        cls.log.close_handle()
-        # cls.driver.close()
+        # cls.log.close_handle()
+        cls.driver.close()
 
 
     def test_login_email_error(self):
-        email_error = self.login.login_email_error('27','user221','111111',self.file_name)
+        email_error = self.login.login_email_error('28','user221','111111',self.file_name)
         self.assertIs(email_error,True)
     
     def test_login_username_error(self):
@@ -57,22 +65,21 @@ class FirstCase(unittest.TestCase):
 
     def test_login_password_error(self):
         password_error = self.login.login_password_error('12345@126.com','11','11',self.file_name)
-        # self.assertIs(password_error,True)
-        if password_error == False:
-            print("注册成功了，此条case执行失败")
+        logger.info('test_login_password_error: ', password_error)
+        self.assertIs(password_error,True)
+
 
     def test_login_code_error(self):
         code_error = self.login.login_code_error('34dsdf@qq.com','user111','111111',self.file_name)
         print('code_error----------------',code_error)
-        # self.assertIs(code_error,True)
-        if code_error == False:
-            print("验证码执行失败")
-            # return self.test_login_code_error()
+        logger.info('test_login_code_error: ', code_error)
+        self.assertIs(code_error,True)
+
 
     def test_login_success(self):
-        success = self.login.register_succes("777@qq.com","ss779","111111",self.file_name)
+        success = self.login.register_succes("625@qq.com","s44","111111",self.file_name)
         # self.assertIs(success,True)
-        if self.login.register_succes("777@qq.com","ss779","111111",self.file_name) == False:
+        if self.login.register_succes("625@qq.com","s44","111111",self.file_name) == False:
             print('重新输入')
             return self.test_login_success()
 
